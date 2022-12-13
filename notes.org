@@ -1,0 +1,20 @@
+* Guides
+
+- Create and debug packages: https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#How_to_install_from_the_local_repository
+  - ~nix build .#{package-name} <exp>~
+
+* Sync
+
+- ~make sync-branches~
+
+* Pull Requests
+
+* Packages
+
+** insync
+
+- Debugging
+  - ~LD_DEBUG=libs ./result/bin/insync start --no-daemon~
+
+** owncloud-client
+
