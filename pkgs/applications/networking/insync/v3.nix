@@ -12,12 +12,13 @@
 , gobject-introspection
 , gtk3
 , libthai
-, qt5 # qt5 packages
+# qt5 packages
+, qt5
 }:
 
 stdenv.mkDerivation rec {
   pname = "insync";
-  version = "3.8.4.50481";
+  version = "3.8.5.50499";
 
   src = fetchurl {
     # Find a binary from https://www.insynchq.com/downloads/linux#ubuntu.
@@ -25,7 +26,7 @@ stdenv.mkDerivation rec {
     # Note: Ubuntu kinetic (22.10) uses glibc 2.36, which nixpkgs does not use yet.
     #       So we use jammy package instead.
     url = "https://cdn.insynchq.com/builds/linux/${pname}_${version}-jammy_amd64.deb";
-    sha256 = "sha256-jd2/XB9UYhofvI7rDrjCTXtjJyo62JQtPo2t53kTjRs=";
+    sha256 = "sha256-JXlgeWHdyesBd1HJbW5mexJ6YaKIbcWkZU/+ycjRuHc=";
   };
 
   postPatch = ''
