@@ -1,0 +1,26 @@
+* Guides
+
+- Create and debug packages: https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#How_to_install_from_the_local_repository
+  - ~nix build .#{package-name}~
+
+* Sync
+
+- ~make sync~
+- ~make rbi~
+
+* Pull Requests
+
+* Packages
+
+** insync
+
+- Build
+  - NIXPKGS_ALLOW_UNFREE=1 nix build .#insync --impure
+- Debug
+  - ~LD_DEBUG=libs ./result/bin/insync start --no-daemon~
+
+** owncloud-client
+
+- Upstream Packages:
+  - https://github.com/owncloud/client/
+  - https://github.com/owncloud/libre-graph-api-cpp-qt-client/
