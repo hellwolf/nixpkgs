@@ -1,14 +1,16 @@
 {
   lib,
-  fetchFromGitHub,
   buildPythonPackage,
+  fetchFromGitHub,
+  fetchpatch2,
+  isPyPy,
+  pythonOlder,
+  cytoolz,
   eth-hash,
   eth-typing,
-  cytoolz,
   hypothesis,
-  isPyPy,
   pytestCheckHook,
-  pythonOlder,
+  pytest-xdist,
   setuptools,
   toolz,
   mypy,
@@ -18,7 +20,10 @@ buildPythonPackage rec {
   pname = "eth-utils";
   version = "5.1.0";
   pyproject = true;
-  disabled = pythonOlder "3.6";
+
+  build-system = [ setuptools ];
+
+  disabled = pythonOlder "3.8";
 
   src = fetchFromGitHub {
     owner = "ethereum";
@@ -26,8 +31,6 @@ buildPythonPackage rec {
     rev = "v${version}";
     hash = "sha256-uPzg1gUEsulQL2u22R/REHWx1ZtbMxvcXf6UgWqkDF4=";
   };
-
-  nativeBuildInputs = [ setuptools ];
 
   propagatedBuildInputs =
     [
@@ -39,8 +42,8 @@ buildPythonPackage rec {
 
   nativeCheckInputs = [
     hypothesis
-    pytestCheckHook
     mypy
+    pytestCheckHook
   ] ++ eth-hash.optional-dependencies.pycryptodome;
 
   pythonImportsCheck = [ "eth_utils" ];
